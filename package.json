@@ -1,0 +1,27 @@
+{
+  "name": "authjwt",
+  "version": "0.0.1",
+  "description": "NodeJS Authentication API with JWT",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belachkar/auth-jwt.git"
+  },
+  "keywords": [
+    "Node.js",
+    "JWT",
+    "Authentication"
+  ],
+  "author": "Belachkar Ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/belachkar/auth-jwt/issues"
+  },
+  "homepage": "https://github.com/belachkar/auth-jwt#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
