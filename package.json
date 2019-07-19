@@ -22,6 +22,11 @@
   },
   "homepage": "https://github.com/belachkar/auth-jwt#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "@hapi/joi": "^15.1.0",
+    "@types/hapi__joi": "^15.0.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.5"
   }
 }
