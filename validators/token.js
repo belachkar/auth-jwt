@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 
-// TODO: implemante it as middleware for the routes we want to limit access to.
 module.exports = function (req, res, next) {
   const token = req.header('auth-token');
 
@@ -14,6 +13,6 @@ module.exports = function (req, res, next) {
     next();
   } catch (err) {
     console.error(err.message);
-    res.ststus(400).json({ Error: 'Invalid token' });
+    res.status(400).json({ Error: 'Invalid token' });
   }
 };

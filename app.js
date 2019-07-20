@@ -23,7 +23,8 @@ const urlMDB = MDB.ptcl + '://' + MDB.username + ':' + MDB.password + '@' + MDB.
 
 // Routes
 const routes = {
-  auth: require('./routes/auth')
+  auth: require('./routes/auth'),
+  posts: require('./routes/posts')
 };
 
 // Middlewares
@@ -37,6 +38,7 @@ app.all('*', (req, res, next) => {
 
 // Route Middlewares
 app.use('/auth', routes.auth);
+app.use('/posts', routes.posts);
 
 // DB server connection
 mongoose.connect(urlMDB, MDB.options);
