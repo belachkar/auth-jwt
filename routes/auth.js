@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
 const User = require('../models/User');
 const { registerValitator, loginValitator } = require('../validators/auth');
 
@@ -63,21 +65,27 @@ router.post('/login', async (req, res) => {
     }
 
     // Checking the password match
-    const isPassMatch = await bcrypt.compare(value.password, user.password);
-    if (!isPassMatch) {
+    const isPassValid = await bcrypt.compare(value.password, user.password);
+    if (!isPassValid) {
       console.log('The password does not match!');
       return res.status(400).json({ Error: 'Wrong email or password!' });
     }
 
-    // The user exists and the pass match, must login.
-    console.log('User', user.name, 'Logged in');
-    return res.json({ Message: 'User '+user.name+' Logged in successfuly' });
+    // Creating and assignins a token
+    const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET);
+
+    // Login.
+    console.log('User', user.name, 'Logged in\n', 'token:', token);
+    const response = {
+      Message: 'User ' + user._id + ' Logged in successfuly',
+      token
+    };
+    return res.header('auth-token', token).json(response);
 
   } catch (err) {
     console.error(err);
     return res.status(400).json({ Error: err.message });
   }
-
 
 });
 

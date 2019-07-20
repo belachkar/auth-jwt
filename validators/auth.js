@@ -1,6 +1,6 @@
 const Joi = require('@hapi/joi');
 
-// Fields to validate
+// Validation fields
 const name = Joi.string().alphanum().min(2).max(255).required();
 const email = Joi.string().email({ minDomainSegments: 2 }).required();
 const password = Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required();
