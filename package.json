@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/belachkar/auth-jwt#readme",
   "dependencies": {
-    "@hapi/joi": "^15.1.0",
+    "@hapi/joi": "^15.1.1",
     "@types/hapi__joi": "^15.0.2",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.0.0",
